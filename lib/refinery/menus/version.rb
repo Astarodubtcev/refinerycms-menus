@@ -1,9 +1,9 @@
 module Refinery
 	module Menus
 	  class Version
-	    @major = 2
+	    @major = 3
 	    @minor = 0
-	    @tiny  = 8
+	    @tiny  = 0
 	    @build = 'dev'
 
 	    class << self

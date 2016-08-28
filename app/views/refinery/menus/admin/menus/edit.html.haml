@@ -1,0 +1,6 @@
+#pp-select-container.clearfix
+  = render 'form_actions'
+  = render 'form'
+= render '/refinery/admin/make_sortable', :tree => true
+- content_for :stylesheets, stylesheet_link_tag('refinery/select_form')
+- content_for :javascripts, javascript_include_tag('refinery/backend.js')

@@ -2,9 +2,9 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.9'
-gem 'refinerycms-i18n', '~> 2.0.2'
-gem 'rails', '3.2.13'
+gem 'refinerycms', '~> 3.0'
+gem 'refinerycms-i18n'
+gem 'rails', '>= 4.2.7'
 
 # Database Configuration
 platforms :jruby do
@@ -21,41 +21,42 @@ platforms :ruby do
 end
 
 group :development do
-  gem 'rails-footnotes', '>= 3.7.9'
-  gem 'meta_request', '0.2.1'
+  gem 'rails-footnotes'
+  gem 'meta_request'
 end
 
 group :development, :test do
   unless ENV['TRAVIS']
     gem 'simplecov', :require => false
     gem 'guard-rspec'
+    gem 'poltergeist'
   end
 
   gem 'capybara-webkit'
   gem 'launchy'
-  gem 'refinerycms-testing', '~> 2.0.3'
+  gem 'refinerycms-testing'
   gem 'rspec-rails'
 
   platforms :mswin, :mingw do
-    gem 'win32console', '~> 1.3.0'
-    gem 'rb-fchange', '~> 0.0.5'
-    gem 'rb-notifu', '~> 0.0.4'
+    gem 'win32console'
+    gem 'rb-fchange'
+    gem 'rb-notifu'
   end
 
   platforms :ruby do
-    gem 'spork', '~> 0.9.0'
+    gem 'spork'
     gem 'guard-spork'
 
     unless ENV['TRAVIS']
       require 'rbconfig'
       if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'rb-fsevent', '~> 0.9.0'
-        gem 'ruby_gntp', '~> 0.3.4'
+        gem 'rb-fsevent'
+        gem 'ruby_gntp'
       end
       if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '~> 0.8.8'
-        gem 'libnotify',  '~> 0.7.2'
-        gem 'therubyracer', '~> 0.10.0'
+        gem 'rb-inotify'
+        gem 'libnotify'
+        gem 'therubyracer'
       end
     end
   end
@@ -64,11 +65,11 @@ group :development, :test do
     unless ENV['TRAVIS']
       require 'rbconfig'
       if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'ruby_gntp', '~> 0.3.4'
+        gem 'ruby_gntp'
       end
       if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '~> 0.8.8'
-        gem 'libnotify',  '~> 0.7.2'
+        gem 'rb-inotify'
+        gem 'libnotify'
       end
     end
   end

@@ -1,14 +1,14 @@
 require 'refinerycms-core'
 
-require 'refinery/menu_item_decorator'
+require 'refinery/menu_item'
 
 module Refinery
   autoload :MenusGenerator, 'generators/refinery/menus/menus_generator'
-  
+
   module Menus
     require 'refinery/menus/engine'
     require 'refinery/menus/configuration'
-    
+
     autoload :InstanceMethods, 'refinery/menus/instance_methods'
 
     class << self
@@ -20,7 +20,7 @@ module Refinery
         @factory_paths ||= [ root.join('spec', 'factories').to_s ]
       end
     end
-    
+
   end
 end
 

@@ -51,7 +51,7 @@
 
 #left_actions {
   float: left;
-  width: 250px;
+  width: 26%;
 
   .controls a {
     background-color: #dbedff;
@@ -84,7 +84,7 @@
   #sortable_list {
     padding: 10px 20px 20px 20px;
     background: #eee;
-    width: 650px;
+    //width: 650px;
     min-height: 400px;
 
     list-style: none;
@@ -175,7 +175,7 @@
 
 #menu_form {
   float: right;
-  width: 700px;
+  width: 73%;
 }
 
 .field input[type=text] {

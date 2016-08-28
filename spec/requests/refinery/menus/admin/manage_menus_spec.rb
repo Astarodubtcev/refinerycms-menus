@@ -4,10 +4,10 @@ module Refinery
   module Menus
     module Admin
       describe "Pages" do
-        login_refinery_user
-        
+        # refinery_login
+
         context "when no menus" do
-          context "index" do 
+          context "index" do
             it "invites to add one" do
               visit refinery.menus_admin_menus_path
               page.should have_content(::I18n.t('no_items_yet', :scope => 'refinery.menus.admin.menus.records'))
@@ -18,7 +18,7 @@ module Refinery
         context "when an menu exists" do
           let!(:menu) { FactoryGirl.create(:menu) }
 
-          context "index" do 
+          context "index" do
             it "lists all menus" do
               visit refinery.menus_admin_menus_path
 
@@ -48,8 +48,8 @@ module Refinery
               it "adds new custom link", :js do
                 visit refinery.edit_menus_admin_menu_path(menu)
 
-                fill_in "menu_link_custom_url", with: "http://google.dk" 
-                fill_in "menu_link_label", with: "Google" 
+                fill_in "menu_link_custom_url", with: "http://google.dk"
+                fill_in "menu_link_label", with: "Google"
 
                 click_button (::I18n.t('add', :scope => 'refinery.menus.admin.menu_links.custom_link'))
 
@@ -61,10 +61,10 @@ module Refinery
               it "adds new custom link without label", :js do
                 visit refinery.edit_menus_admin_menu_path(menu)
 
-                fill_in "menu_link_custom_url", with: "http://google.dk" 
+                fill_in "menu_link_custom_url", with: "http://google.dk"
 
                 click_button (::I18n.t('add', :scope => 'refinery.menus.admin.menu_links.custom_link'))
-                
+
                 within "#links-container" do
                   page.should have_content("Google")
                 end
@@ -107,7 +107,7 @@ module Refinery
 
                 page.should have_content(link_1.label)
 
-                within "#menu_link_#{link_1.id}" do 
+                within "#menu_link_#{link_1.id}" do
                   click_link "remove"
                 end
 
@@ -130,15 +130,15 @@ module Refinery
 
                 page.should have_content(company_link.label)
 
-                within "#menu_link_#{company_link.id}" do    
+                within "#menu_link_#{company_link.id}" do
                   page.should have_content(team_link.label)
 
-                  within "#menu_link_#{team_link.id}" do    
+                  within "#menu_link_#{team_link.id}" do
                     page.should_not have_content(company_link.label)
 
                     page.should have_content(locations_link.label)
 
-                    within "#menu_link_#{locations_link.id}" do    
+                    within "#menu_link_#{locations_link.id}" do
                       page.should_not have_content(company_link.label)
                       page.should_not have_content(team_link.label)
 
@@ -157,7 +157,7 @@ module Refinery
               #     visit refinery.edit_menus_admin_menu_path(menu)
 
               #     within "#menu_link_#{team_link.id}" do
-              #       page.should_not have_content(about_link.label) 
+              #       page.should_not have_content(about_link.label)
               #     end
 
               #     group = find("#menu_link_#{team_link.id} ul.nested:first-child")
@@ -166,7 +166,7 @@ module Refinery
               #     item.drag_to group
 
               #     within "#menu_link_#{team_link.id}" do
-              #       page.should have_content(about_link.label) 
+              #       page.should have_content(about_link.label)
               #     end
 
               #   end
