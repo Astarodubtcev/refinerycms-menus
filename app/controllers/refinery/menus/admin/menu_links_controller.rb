@@ -3,7 +3,6 @@ class Refinery::Menus::Admin::MenuLinksController < Refinery::AdminController
     respond_to do |format|
       format.js do
         @menu_links = []
-        binding.pry
         if params[:resource_ids]
           params[:resource_ids].each do |id|
             @menu_links << Refinery::Menus::MenuLink.create({resource_id: id}.merge(params[:menu_link]))
