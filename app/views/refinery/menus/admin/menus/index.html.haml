@@ -1,0 +1,6 @@
+-# <section id='records'>
+-#   <%= render 'records' %>
+-# </section>
+%section#records.tree= render 'records'
+%section#actions= render 'actions'
+= render '/refinery/admin/make_sortable', options: {tree: true, replaceContentsAfterUpdate: true} if @menus.many?
